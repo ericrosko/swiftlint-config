@@ -1,0 +1,75 @@
+# swiftlint version 0.16.1
+# 2017-Feb-25
+
+# for more info go to https://github.com/realm/SwiftLint
+
+# add a Run Script after your linking phase in Xcode to automatically run
+#if which swiftlint >/dev/null; then
+#  swiftlint
+#else
+#  echo "warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint"
+#fi
+
+#command line: swiftlint autocorrect
+
+disabled_rules:
+#    - trailing_newline
+#    - opening_brace
+#    - empty_count
+#    - comma
+#    - colon
+#    - force_cast
+#    - type_name
+#    - trailing_semicolon
+#    - force_try # Force tries should be avoided.
+#    - function_body_length
+    - variable_name #error: Variable name should be between 3 and 40 characters long: 'f' (variable_name)
+#    - conditional_binding_cascade
+#    - operator_whitespace
+#    - control_statement # if,for,while,do statements shouldn't wrap their conditionals in parentheses.
+#    - legacy_constant
+#    - line_length # Line should be 120 characters or less: currently 121 characters
+#    - return_arrow_whitespace
+    - trailing_whitespace # Trailing Whitespace Violation: Lines should not have trailing whitespace.
+#    - closing_brace
+#    - statement_position
+#    - type_body_length
+#    - todo
+#    - legacy_constructor
+#    - valid_docs
+#    - missing_docs
+#    - file_length
+#    - leading_whitespace # autocorrect File shouldn't start with whitespace: currently starts with 1 whitespace characters
+#    - syntactic_sugar # Shorthand syntactic sugar should be used, i.e. [Int] instead of Array<Int>
+#    - shorthand_operator # Prefer shorthand operators (+=, -=, *=, /=) over doing the operation and assigning.
+#    - implicit_getter # Computed read-only properties should avoid using the get keyword.
+#    - type_body_length # Type body should span 200 lines or less excluding comments and whitespace: currently spans 208 lines
+#    - operator_whitespace # Operators should be surrounded by a single whitespace when defining them.
+#    - trailing_comma # Collection literals should not have trailing commas.
+    - force_try #Force tries should be avoided.
+#    - vertical_whitespace # autocorrect Limit vertical whitespace to a single empty line. Currently 4.
+
+
+# I have added all possible opt ins for swiftlint version 0.16.1
+opt_in_rules:
+    - attributes
+    - closure_end_indentation
+    - closure_spacing
+    - conditional_returns_on_newline
+    - empty_count
+    - explicit_init
+    - file_header
+    - first_where
+#    - force_unwrapping # warning: Force Unwrapping Violation: Force unwrapping should be avoided.
+    - missing_docs
+    - nimble_operator
+    - number_separator #Underscores should be used as thousand separator in large decimal numbers.
+    - object_literal
+    - operator_usage_whitespace #Operator Usage Whitespace Violation: Operators should be surrounded by a single whitespace when they are being used.
+    - overridden_super_call
+    - private_outlet
+    - prohibited_super_call
+    - redundant_nil_coalescing
+#    - sorted_imports #Imports should be sorted.
+    - switch_case_on_newline
+    

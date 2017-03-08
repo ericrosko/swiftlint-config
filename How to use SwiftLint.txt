@@ -1,0 +1,56 @@
+How to use SwiftLint
+
+Install SwiftLint pkg.  Don’t use cocoapods.  This is easy:
+https://github.com/realm/SwiftLint/releases/tag/0.16.1
+
+You can run it from the commandline after you install:
+Todi:robot-name erosko$ swiftlint
+
+It can autocorrect some things.  Run it in a parent folder and it will recursively check all .swift files in child folders and fix them:
+Todi:temp erosko$ swiftlint autocorrect
+It will tell you what files it found.
+
+In your parent xcode folder add your .yml file:
+.swiftlint.yml
+I have named one called dotfile-swiftlint so I can edit it and copy it over and rename it.
+
+Add a new run script to Xcode.  Put it just after the linking and before any file copying happens.  
+This way the build stops before the long file copying happens.  You can drag and drop reorder them in Xcode which may not be obvious:
+if which swiftlint >/dev/null; then
+  swiftlint
+else
+  echo "warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint"
+fi
+
+This way SwiftLint will run on build.
+
+My dotfile.  Rename to .swift.yml .  I don't store it with a dot so it's easy to find and edit.  Otherwise it will
+start with a dot and be hidden.
+dotfile-swiftlint
+
+How to copy it to whatever file I'm working:
+use cp to file copy.
+cp ~/Documents/Xcode/SwiftLint/dotfile-swiftlint.yml .swiftlint.yml
+
+The dot config file lets you disable and opt into certain rules.  Run "exercism rules" to see all the rules.  I then went through this list to find all the rules, which I added to my yml file.
+ 
+If a rule is too annoying I will add it to the disabled_rules list.
+
+The yml file will only work if the SwiftLint is run from that directory!  It will not work if you run it from a child directory.
+
+Add this as a run script to Xcode:
+
+if which swiftlint >/dev/null; then
+swiftlint
+else
+echo "warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint"
+fi
+
+
+
+
+
+
+
+
+
